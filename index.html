@@ -1,202 +1,232 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Happy Teachers' Day</title>
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      font-family: 'Poppins', sans-serif;
-      color: #fff;
-      background: linear-gradient(135deg, #6a11cb, #2575fc);
-    }
+    <meta charset="UTF-8">
+    <title>Happy Teachers' Day</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
-    h1, h2 {
-      margin: 10px;
-      text-align: center;
-    }
-    h1 {
-      font-size: 3em;
-      color: #FFD700;
-      text-shadow: 0 0 20px #FFD700;
-    }
-    h2 {
-      font-size: 1.5em;
-      color: #ffb6c1;
-    }
-    .typed {
-      font-size: 1.8em;
-      font-weight: bold;
-      color: #00ffcc;
-      margin: 20px 0;
-      text-shadow: 0 0 10px #00ffcc;
-      min-height: 40px;
-    }
-    footer {
-      position: absolute;
-      bottom: 20px;
-      font-size: 1.2em;
-      color: #FFD700;
-      text-shadow: 0 0 10px #FFD700;
-    }
+        body {
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Poppins', sans-serif;
+            color: #fff;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+        }
 
-    /* Blob Styles */
-    .blob {
-      position: absolute;
-      width: 400px;
-      height: 400px;
-      border-radius: 50%;
-      background: radial-gradient(circle at center, rgba(255,0,150,0.6), rgba(0,200,255,0.4));
-      animation: blobBreath 6s infinite alternate ease-in-out, blobGlow 3s infinite alternate;
-      filter: blur(50px);
-      z-index: 0;
-    }
-    .blob.top-left { top: -100px; left: -100px; }
-    .blob.bottom-right { bottom: -100px; right: -100px; }
+        h1, h2 {
+            margin: 10px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 3em;
+            /* The color and text-shadow are now applied to individual words below */
+        }
+        h2 {
+            font-size: 1.5em;
+            color: #ffb6c1;
+        }
+        .typed {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #00ffcc;
+            margin: 20px 0;
+            text-shadow: 0 0 10px #00ffcc;
+            min-height: 40px;
+        }
+        footer {
+            position: absolute;
+            bottom: 20px;
+            font-size: 1.2em;
+            color: #FFD700;
+            text-shadow: 0 0 10px #FFD700;
+            text-align: center;
+        }
+        .card {
+            background-color: rgba(144, 19, 254, 0.25);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            padding: 2em;
+            border-radius: 20px;
+        }
 
-    @keyframes blobBreath {
-      from { transform: scale(1); }
-      to { transform: scale(1.2); }
-    }
-    @keyframes blobGlow {
-      from { opacity: 0.6; }
-      to { opacity: 1; }
-    }
+        /* Blob Styles */
+        .blob {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle at center, rgba(255,0,150,0.6), rgba(0,200,255,0.4));
+            animation: blobBreath 6s infinite alternate ease-in-out, blobGlow 3s infinite alternate;
+            filter: blur(50px);
+            z-index: 0;
+        }
+        .blob.top-left { top: -100px; left: -100px; }
+        .blob.bottom-right { bottom: -100px; right: -100px; }
 
-    /* Balloon */
-    .balloon {
-      position: absolute;
-      bottom: -150px;
-      width: 40px;
-      height: 60px;
-      background: radial-gradient(circle at 30% 30%, #ff6699, #cc0066);
-      border-radius: 50% 50% 50% 50%;
-      animation: float 10s linear infinite;
-      z-index: 1;
-    }
-    .balloon::after {
-      content: '';
-      position: absolute;
-      width: 2px;
-      height: 80px;
-      background: #fff;
-      left: 50%;
-      top: 60px;
-    }
-    @keyframes float {
-      0% { transform: translateY(0) translateX(0); }
-      50% { transform: translateY(-100vh) translateX(30px); }
-      100% { transform: translateY(-200vh) translateX(-30px); }
-    }
+        @keyframes blobBreath {
+            from { transform: scale(1); }
+            to { transform: scale(1.2); }
+        }
+        @keyframes blobGlow {
+            from { opacity: 0.6; }
+            to { opacity: 1; }
+        }
 
-    /* Particles */
-    .particle {
-      position: absolute;
-      width: 4px;
-      height: 4px;
-      background: white;
-      border-radius: 50%;
-      opacity: 0.7;
-      animation: drift 10s infinite linear;
-      z-index: 1;
-    }
-    @keyframes drift {
-      from { transform: translateY(0); opacity: 0.7; }
-      to { transform: translateY(-100vh); opacity: 0; }
-    }
+        /* Balloon */
+        .balloon {
+            position: absolute;
+            bottom: -150px;
+            width: 40px;
+            height: 60px;
+            background: radial-gradient(circle at 30% 30%, #ff6699, #cc0066);
+            border-radius: 50% 50% 50% 50%;
+            animation: float 10s linear infinite;
+            z-index: 1;
+        }
+        .balloon::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 80px;
+            background: #fff;
+            left: 50%;
+            top: 60px;
+        }
+        @keyframes float {
+            0% { transform: translateY(0) translateX(0); }
+            50% { transform: translateY(-100vh) translateX(30px); }
+            100% { transform: translateY(-200vh) translateX(-30px); }
+        }
 
-    /* Confetti */
-    .confetti {
-      position: absolute;
-      top: -10px;
-      width: 10px;
-      height: 20px;
-      background: red;
-      opacity: 0.9;
-      animation: fall linear infinite;
-      z-index: 2;
-    }
-    @keyframes fall {
-      0% { transform: translateY(0) rotate(0deg); }
-      100% { transform: translateY(110vh) rotate(360deg); }
-    }
-  </style>
+        /* Particles */
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.7;
+            animation: drift 10s infinite linear;
+            z-index: 1;
+        }
+        @keyframes drift {
+            from { transform: translateY(0); opacity: 0.7; }
+            to { transform: translateY(-100vh); opacity: 0; }
+        }
+
+        /* Confetti */
+        .confetti {
+            position: absolute;
+            top: -10px;
+            width: 10px;
+            height: 20px;
+            background: red;
+            opacity: 0.9;
+            animation: fall linear infinite;
+            z-index: 2;
+        }
+        @keyframes fall {
+            0% { transform: translateY(0) rotate(0deg); }
+            100% { transform: translateY(110vh) rotate(360deg); }
+        }
+
+        /* Media Queries for mobile devices */
+        @media (max-width: 768px) {
+            h1 { font-size: 2em; }
+            h2 { font-size: 1.2em; }
+            .typed { font-size: 1.2em; min-height: 30px; }
+            footer { font-size: 0.8em; }
+            .blob { width: 250px; height: 250px; }
+        }
+    </style>
 </head>
 <body>
-  <div class="blob top-left"></div>
-  <div class="blob bottom-right"></div>
+    <div class="blob top-left"></div>
+    <div class="blob bottom-right"></div>
 
-  <h1>Happy Teachers' Day</h1>
-  <h2>North Bengal University</h2>
-  <div class="typed"></div>
-  <footer> Tupen Shil, MCA 3rd Sem</footer>
+    <div class="card">
+        <h1>
+            <span style="color: #6ee7b7; text-shadow: 0 0 10px #6ee7b7;">Happy</span>
+            <span style="color: #fca5a5; text-shadow: 0 0 10px #fca5a5;">Teachers'</span>
+            <span style="color: #93c5fd; text-shadow: 0 0 10px #93c5fd;">Day</span>
+        </h1>
+        <h2>North Bengal University</h2>
+        <div class="typed"></div>
+    </div>
+    <footer>By Tupen Shil, MCA 3rd Sem</footer>
+    <script>
+        // Auto Typed Greetings
+        const messages = [
+            "Thank you for your guidance! 🌟",
+            "You inspire us every day 💡",
+            "We are grateful for your wisdom 🙏",
+            "Happy Teachers' Day to all mentors 🎉"
+        ];
+        let msgIndex = 0, charIndex = 0;
+        const typedEl = document.querySelector('.typed');
 
-  <script>
-    // Auto Typed Greetings
-    const messages = [
-      "Thank you for your guidance! 🌟",
-      "You inspire us every day 💡",
-      "We are grateful for your wisdom 🙏",
-      "Happy Teachers' Day to all mentors 🎉"
-    ];
-    let msgIndex = 0, charIndex = 0;
-    const typedEl = document.querySelector('.typed');
+        function typeMessage() {
+            if (charIndex < messages[msgIndex].length) {
+                typedEl.textContent += messages[msgIndex].charAt(charIndex);
+                charIndex++;
+                setTimeout(typeMessage, 100);
+            } else {
+                setTimeout(() => {
+                    typedEl.textContent = "";
+                    charIndex = 0;
+                    msgIndex = (msgIndex + 1) % messages.length;
+                    typeMessage();
+                }, 2000);
+            }
+        }
+        typeMessage();
 
-    function typeMessage() {
-      if (charIndex < messages[msgIndex].length) {
-        typedEl.textContent += messages[msgIndex].charAt(charIndex);
-        charIndex++;
-        setTimeout(typeMessage, 100);
-      } else {
-        setTimeout(() => {
-          typedEl.textContent = "";
-          charIndex = 0;
-          msgIndex = (msgIndex + 1) % messages.length;
-          typeMessage();
-        }, 2000);
-      }
-    }
-    typeMessage();
+        // Check screen width for animation count
+        const isMobile = window.innerWidth <= 768;
+        const balloonCount = isMobile ? 3 : 6;
+        const particleCount = isMobile ? 15 : 30;
+        const confettiCount = isMobile ? 40 : 80;
 
-    // Balloons
-    for (let i = 0; i < 6; i++) {
-      const b = document.createElement("div");
-      b.className = "balloon";
-      b.style.left = Math.random() * 100 + "vw";
-      b.style.animationDuration = 8 + Math.random() * 5 + "s";
-      b.style.background = `radial-gradient(circle at 30% 30%, hsl(${Math.random()*360},70%,60%), hsl(${Math.random()*360},70%,40%))`;
-      document.body.appendChild(b);
-    }
+        // Balloons
+        for (let i = 0; i < balloonCount; i++) {
+            const b = document.createElement("div");
+            b.className = "balloon";
+            b.style.left = Math.random() * 100 + "vw";
+            b.style.animationDuration = 8 + Math.random() * 5 + "s";
+            b.style.background = `radial-gradient(circle at 30% 30%, hsl(${Math.random()*360},70%,60%), hsl(${Math.random()*360},70%,40%))`;
+            document.body.appendChild(b);
+        }
 
-    // Particles
-    for (let i = 0; i < 30; i++) {
-      const p = document.createElement("div");
-      p.className = "particle";
-      p.style.left = Math.random() * 100 + "vw";
-      p.style.top = Math.random() * 100 + "vh";
-      p.style.animationDuration = 5 + Math.random() * 10 + "s";
-      document.body.appendChild(p);
-    }
+        // Particles
+        for (let i = 0; i < particleCount; i++) {
+            const p = document.createElement("div");
+            p.className = "particle";
+            p.style.left = Math.random() * 100 + "vw";
+            p.style.top = Math.random() * 100 + "vh";
+            p.style.animationDuration = 5 + Math.random() * 10 + "s";
+            document.body.appendChild(p);
+        }
 
-    // Confetti
-    for (let i = 0; i < 80; i++) {
-      const c = document.createElement("div");
-      c.className = "confetti";
-      c.style.left = Math.random() * 100 + "vw";
-      c.style.background = `hsl(${Math.random()*360}, 80%, 60%)`;
-      c.style.width = Math.random() * 8 + 6 + "px";
-      c.style.height = Math.random() * 14 + 10 + "px";
-      c.style.animationDuration = 4 + Math.random() * 6 + "s";
-      c.style.animationDelay = Math.random() * 5 + "s";
-      document.body.appendChild(c);
-    }
-  </script>
+        // Confetti
+        for (let i = 0; i < confettiCount; i++) {
+            const c = document.createElement("div");
+            c.className = "confetti";
+            c.style.left = Math.random() * 100 + "vw";
+            c.style.background = `hsl(${Math.random()*360}, 80%, 60%)`;
+            c.style.width = Math.random() * 8 + 6 + "px";
+            c.style.height = Math.random() * 14 + 10 + "px";
+            c.style.animationDuration = 4 + Math.random() * 6 + "s";
+            c.style.animationDelay = Math.random() * 5 + "s";
+            document.body.appendChild(c);
+        }
+    </script>
 </body>
 </html>
-
